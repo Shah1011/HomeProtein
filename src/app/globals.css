@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: white; /* Set the background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFA100; /* Set the color of the thumb */
+  border-radius: 5px; /* Add rounded corners to the thumb */
+}
+
+input[type="range"] {
+  accent-color : #FFA100;
+  margin-top: 0.25rem; /* Adjust as needed */
+
+  &::-webkit-slider-thumb {
+    width: 1.5rem; /* Adjust the thumb size as needed */
+    height: 1.5rem; /* Adjust the thumb size as needed */
+    background-color: #FFA100; /* Change this color as needed */
+    border: 2px solid #fff; /* Add a border for better visibility */
+    border-radius: 50%; /* Ensure the thumb is circular */
+    appearance: none;
+ /* Adjust as needed to center the thumb vertically */
+  }
+
+  &:focus {
+    outline: #FFD87D;
+  }
+
+  &:hover::-webkit-slider-thumb {
+    background-color: #FFD87D; /* Change this color as needed */
+  }
+}
+
+
+
+@keyframes slideDesktop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-175%);
+  }
+}
+
+@keyframes slideMobile {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-725%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: flex;
+  gap: 10px;
+}
+
+/* Desktop styles and animation */
+@media (min-width: 768px) {
+  .logos-slide {
+    animation: 20s slideDesktop infinite linear;
+  }
+
+  .custom-carousel .carousel-slider .slide img {
+    margin-left: -20px; /* Offset the negative margin */
+  }
+}
+
+/* Mobile styles and animation */
+@media (max-width: 767px) {
+  .logos-slide {
+    animation: 35s slideMobile infinite linear; /* Adjust the speed for mobile */
+  }
+}
+  .custom-carousel .carousel-slider .slide img {
+    margin-left: -20px; /* Offset the negative margin */
+  }
+
